@@ -1,0 +1,202 @@
+:root {
+	color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+	body { background: #333; color: white; }
+	nav#controls { background: #222; }
+	#exif-info { background: #444; }
+	.exif-row:nth-child(2n) { background: #404040 }
+}
+
+@media (prefers-color-scheme: light) {
+	body { background: #ddd; color: black; }
+	#dropzone { background: #eee; }
+	nav#controls { background: #eee; }
+	#exif-info { background: #eee; }
+	.exif-row:nth-child(2n) { background: #e6e6e6 }
+}
+
+html, body {
+	width: 100vw;
+	height: 100vh;
+	padding: 0;
+	margin: 0;
+	font-family: system-ui;
+}
+
+#container {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	padding: 1rem;
+	box-sizing: border-box;
+}
+
+#container.hasNav {
+	height: calc(100% - 3.3rem)
+}
+
+.view-section {
+	width: 100%;
+	height: 100%;
+}
+
+.view-section:not(#view-start) {
+	display: none;
+}
+
+#dropzone {
+	width: 100%;
+	height: 100%;
+	border: 1px dashed #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.9rem;
+	font-style: italic;
+	cursor: pointer;
+
+	@media (prefers-color-scheme: light) {
+		border-color: #999;
+	}
+}
+
+#file-input {
+	display: none;
+}
+
+#view-photo-grid {
+	display: flex;
+	/* align-items: flex-start; */
+	align-items: stretch;
+	gap: 1rem;
+	height: 100%;
+}
+
+#photo-container {
+	flex-shrink: 1;
+	flex-grow: 1;
+	width: 50%;
+	height: 100%;
+	position: relative;
+}
+
+#photo-loading {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+	/* background: rgba(255, 255, 255, 0.1); */
+	z-index: 100;
+	color: #fff;
+	font-style: italic;
+	font-size: 0.9rem;
+}
+
+#the-photo {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: center;
+}
+
+#exif-info {
+	width: 300px;
+	height: 100%;
+	overflow-y: auto;
+	border-radius: 5px;
+	/* border: 1px solid #ccc; */
+}
+
+.exif-row {
+	display: flex;
+	/* border-bottom: 1px solid #ccc; */
+	font-size: 0.8em;
+}
+
+.exif-row label,
+.exif-row input {
+	padding: 0.5em;
+	font-size: 1em;
+	line-height: 1em;
+}
+.exif-row input.changed {
+	color: #ffff33;
+}
+.exif-row input.error {
+	color: #ff3333;
+}
+
+.exif-row label {
+	width: 120px;
+	overflow: hidden;
+}
+
+.exif-row input {
+	width: 180px;
+	box-sizing: border-box;
+	border: 0;
+	background: none;
+}
+.exif-row input:active,
+.exif-row input:focus {
+	background: #eee;
+	color: black;
+}
+
+#exif-btn-container {
+	text-align: center;
+	padding: 1rem;
+}
+
+#btn-save-exif {
+
+}
+
+.popup-bubble {
+	padding: 0.5rem;
+	position: fixed;
+	left: 1rem;
+	right: 1rem;
+	bottom: 5rem;
+	background: #000000;
+	color: #ffffff;
+	border-radius: 5px;
+	font-size: 0.8em;
+	margin: 0 auto;
+	width: fit-content;
+}
+
+nav#controls {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 1.3rem;
+	margin: 0;
+	padding: 1rem;
+}
+
+#paging {
+	font-size: 0.8em;
+	min-width: 8em;
+	text-align: center;
+}

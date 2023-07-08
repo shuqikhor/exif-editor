@@ -1,0 +1,51 @@
+{
+  "name": "exif-editor",
+  "version": "0.1.0",
+  "description": "Edit EXIF information in your photos",
+  "main": "./main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "app:dir": "electron-builder --dir",
+    "app:dist": "electron-builder"
+  },
+  "author": "Shuqi Khor",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^24.3.1",
+    "electron-builder": "^24.4.0"
+  },
+  "dependencies": {
+    "piexifjs": "^1.0.4",
+    "python-shell": "^5.0.0",
+    "react-desktop": "^0.3.9"
+  },
+  "build": {
+    "productName": "Exif Editor",
+    "appId": "com.sqkhor.exifeditor",
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "build/icon.ico"
+    }
+  }
+}

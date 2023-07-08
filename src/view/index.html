@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+		<meta
+			http-equiv="Content-Security-Policy"
+			content="default-src 'self' data: blob; script-src 'self'"
+		/>
+		<meta
+			http-equiv="X-Content-Security-Policy"
+			content="default-src 'self'; script-src 'self'"
+		/>
+		<link rel="stylesheet" type="text/css" href="./style.css">
+		<title>Exif Editor</title>
+		<script src="../lib/piexif.js"></script>
+		<script src="./photo-frame.js"></script>
+		<script src="./exif-list.js"></script>
+		<script src="./pop-up.js"></script>
+	</head>
+	<body>
+		<!-- <h1>Exif Editor</h1> -->
+		<!-- <p id="info"></p> -->
+		<!-- <textarea name="" id="file-list" cols="30" rows="10"></textarea> -->
+
+		<div id="container">
+			<section id="view-start" class="view-section">
+				<div id="dropzone">Drop files here</div>
+				<input type="file" name="" id="file-input" accept=".jpg, .jpeg" multiple>
+			</section>
+			<section id="view-photo" class="view-section">
+				<div id="view-photo-grid">
+					<!-- <img id="the-photo" alt="" src=""> -->
+					<div id="photo-container"></div>
+					<div id="exif-info"></div>
+				</div>
+			</section>
+			<nav id="controls">
+				<button id="btn-prev">Prev</button>
+				<div id="paging">
+					<span id="page-current"></span>
+					of
+					<span id="page-total"></span>
+				</div>
+				<button id="btn-next">Next</button>
+			</nav>
+		</div>
+		<script src="../renderer.js"></script>
+	</body>
+</html>
