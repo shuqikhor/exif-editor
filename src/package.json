@@ -24,18 +24,23 @@
     "productName": "Exif Editor",
     "appId": "com.sqkhor.exifeditor",
     "dmg": {
+      "iconSize": 80,
       "contents": [
         {
-          "x": 110,
-          "y": 150
+          "x": 100,
+          "y": 170
         },
         {
-          "x": 240,
-          "y": 150,
+          "x": 440,
+          "y": 170,
           "type": "link",
           "path": "/Applications"
         }
-      ]
+      ],
+      "window": {
+        "width": 540,
+        "height": 420
+      }
     },
     "linux": {
       "target": [
